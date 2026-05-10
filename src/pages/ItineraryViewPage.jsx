@@ -123,6 +123,12 @@ export default function ItineraryViewPage() {
           >
             <ShoppingBag size={15} /> Checklist
           </button>
+          <button
+            onClick={() => navigate(`/trips/${tripId}/notes`)}
+            className="flex items-center gap-2 border border-indigo-300 text-indigo-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-indigo-50 transition"
+          >
+            <BookOpen size={15} /> Notes
+          </button>
         </div>
 
         {/* Trip Summary Card */}
