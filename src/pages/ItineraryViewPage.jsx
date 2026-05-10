@@ -179,8 +179,8 @@ export default function ItineraryViewPage() {
 
             <div className="space-y-6 relative z-10">
               {stops.map((stop, index) => (
-                <div key={stop.$id} className="flex gap-4">
-
+              <div key={stop.$id} className={`animate-fade-in-up delay-${index + 1} flex gap-4`}>
+              
                   {/* Circle marker */}
                   <div className="shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow">
                     {index + 1}

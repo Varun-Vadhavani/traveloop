@@ -182,9 +182,9 @@ export default function BudgetPage() {
             { label: 'Avg / Day',     value: `$${avgPerDay.toFixed(2)}`,   icon: <TrendingUp size={18} />,  color: 'text-purple-600 bg-purple-50' },
             { label: 'Total Days',    value: `${tripDays} days`,            icon: <TrendingUp size={18} />,  color: 'text-blue-600 bg-blue-50' },
             { label: 'Cities',        value: `${stops.length}`,             icon: <DollarSign size={18} />,  color: 'text-green-600 bg-green-50' },
-          ].map(card => (
-            <div key={card.label} className="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
-              <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-2 ${card.color}`}>
+          ].map((card, index) => (
+            <div key={card.label} className={`animate-fade-in-up delay-${index + 1} bg-white rounded-xl border border-gray-100 shadow-sm p-4`}>
+                        <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-2 ${card.color}`}>
                 {card.icon}
               </div>
               <p className="text-xs text-gray-400">{card.label}</p>

@@ -216,8 +216,8 @@ export default function ItineraryBuilderPage() {
           )}
 
           {stops.map((stop, index) => (
-            <div key={stop.$id} className="bg-white rounded-xl shadow-sm border border-gray-100">
-
+            <div key={stop.$id} className={`animate-fade-in-up delay-${index + 1} bg-white rounded-xl shadow-sm border border-gray-100`}>
+            
               {/* Stop Header */}
               <div className="flex items-center gap-3 p-4">
                 <div className="text-gray-300 cursor-grab"><GripVertical size={18} /></div>

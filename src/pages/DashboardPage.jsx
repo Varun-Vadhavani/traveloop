@@ -83,11 +83,11 @@ export default function DashboardPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {recentTrips.map(trip => (
-                <div
-                  key={trip.$id}
-                  className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition overflow-hidden"
-                >
+  {recentTrips.map((trip, index) => (
+    <div
+      key={trip.$id}
+      className={`animate-fade-in-up delay-${index + 1} bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition overflow-hidden`}
+    >
                   {/* Color bar */}
                   <div className="h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500" />
 
@@ -128,11 +128,11 @@ export default function DashboardPage() {
         <section>
           <h3 className="text-lg font-bold text-gray-800 mb-4">Popular Destinations</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {FEATURED_DESTINATIONS.map(dest => (
-              <div
-                key={dest.city}
-                className={`rounded-xl p-4 flex items-center gap-3 cursor-pointer hover:opacity-80 transition ${dest.color}`}
-              >
+  {FEATURED_DESTINATIONS.map((dest, index) => (
+    <div
+      key={dest.city}
+      className={`animate-fade-in-up delay-${index + 1} rounded-xl p-4 flex items-center gap-3 cursor-pointer hover:opacity-80 transition ${dest.color}`}
+    >
                 <span className="text-2xl">{dest.emoji}</span>
                 <div>
                   <p className="font-semibold text-sm">{dest.city}</p>

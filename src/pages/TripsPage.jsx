@@ -131,11 +131,11 @@ export default function TripsPage() {
         {/* Trips Grid */}
         {!loading && filtered.length > 0 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filtered.map(trip => (
-              <div
-                key={trip.$id}
-                className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition group"
-              >
+            {filtered.map((trip, index) => (
+            <div
+              key={trip.$id}
+              className={`animate-fade-in-up delay-${index + 1} bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition group`}
+            >
                 {/* Color bar */}
                 <div className="h-2 bg-gradient-to-r from-indigo-500 to-purple-500" />
 
