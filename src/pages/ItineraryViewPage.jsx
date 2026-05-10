@@ -98,38 +98,41 @@ export default function ItineraryViewPage() {
       <main className="max-w-3xl mx-auto px-4 py-8">
 
         {/* Header */}
-        <div className="flex items-start justify-between mb-6">
-          <button
-            onClick={() => navigate(-1)}
-            className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-indigo-600 transition mt-1"
-          >
-            <ArrowLeft size={16} /> Back
-          </button>
-          <button
-            onClick={() => navigate(`/trips/${tripId}/build`)}
-            className="flex items-center gap-2 border border-indigo-300 text-indigo-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-indigo-50 transition"
-          >
-            <Edit size={15} /> Edit Trip
-          </button>
-          <button
-            onClick={() => navigate(`/trips/${tripId}/budget`)}
-            className="flex items-center gap-2 bg-indigo-600 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-indigo-700 transition"
-          >
-            <PiggyBank size={15} /> Budget
-          </button>
-          <button
-            onClick={() => navigate(`/trips/${tripId}/checklist`)}
-            className="flex items-center gap-2 border border-indigo-300 text-indigo-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-indigo-50 transition"
-          >
-            <ShoppingBag size={15} /> Checklist
-          </button>
-          <button
-            onClick={() => navigate(`/trips/${tripId}/notes`)}
-            className="flex items-center gap-2 border border-indigo-300 text-indigo-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-indigo-50 transition"
-          >
-            <BookOpen size={15} /> Notes
-          </button>
-        </div>
+        {/* Header */}
+<div className="flex items-start justify-between mb-6">
+  <button
+    onClick={() => navigate(-1)}
+    className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-indigo-600 transition mt-1"
+  >
+    <ArrowLeft size={16} /> Back
+  </button>
+  <div className="flex flex-wrap gap-2 justify-end">
+    <button
+      onClick={() => navigate(`/trips/${tripId}/build`)}
+      className="flex items-center gap-2 border border-gray-200 text-gray-600 text-sm font-medium px-3 py-2 rounded-lg hover:bg-gray-50 transition"
+    >
+      <Edit size={15} /> Edit
+    </button>
+    <button
+      onClick={() => navigate(`/trips/${tripId}/budget`)}
+      className="flex items-center gap-2 border border-indigo-200 text-indigo-600 text-sm font-medium px-3 py-2 rounded-lg hover:bg-indigo-50 transition"
+    >
+      <PiggyBank size={15} /> Budget
+    </button>
+    <button
+      onClick={() => navigate(`/trips/${tripId}/checklist`)}
+      className="flex items-center gap-2 border border-indigo-200 text-indigo-600 text-sm font-medium px-3 py-2 rounded-lg hover:bg-indigo-50 transition"
+    >
+      <ShoppingBag size={15} /> Checklist
+    </button>
+    <button
+      onClick={() => navigate(`/trips/${tripId}/notes`)}
+      className="flex items-center gap-2 border border-indigo-200 text-indigo-600 text-sm font-medium px-3 py-2 rounded-lg hover:bg-indigo-50 transition"
+    >
+      <BookOpen size={15} /> Notes
+    </button>
+  </div>
+</div>
 
         {/* Trip Summary Card */}
         <div className="bg-indigo-600 text-white rounded-2xl p-6 mb-6">

@@ -6,12 +6,12 @@ import Navbar from '../components/Navbar'
 import { Plus, MapPin, Calendar, ArrowRight } from 'lucide-react'
 
 const FEATURED_DESTINATIONS = [
-  { city: 'Paris',     country: 'France',  emoji: '🗼', color: 'bg-pink-50 text-pink-700' },
-  { city: 'Tokyo',     country: 'Japan',   emoji: '🗾', color: 'bg-red-50 text-red-700' },
-  { city: 'New York',  country: 'USA',     emoji: '🗽', color: 'bg-blue-50 text-blue-700' },
-  { city: 'Bali',      country: 'Indonesia', emoji: '🌴', color: 'bg-green-50 text-green-700' },
-  { city: 'Dubai',     country: 'UAE',     emoji: '🏙️', color: 'bg-yellow-50 text-yellow-700' },
-  { city: 'London',    country: 'UK',      emoji: '🎡', color: 'bg-purple-50 text-purple-700' },
+  { city: 'Paris',    country: 'France',    emoji: '🗼', color: 'bg-pink-50 text-pink-700' },
+  { city: 'Tokyo',    country: 'Japan',     emoji: '🗾', color: 'bg-red-50 text-red-700' },
+  { city: 'New York', country: 'USA',       emoji: '🗽', color: 'bg-blue-50 text-blue-700' },
+  { city: 'Bali',     country: 'Indonesia', emoji: '🌴', color: 'bg-green-50 text-green-700' },
+  { city: 'Dubai',    country: 'UAE',       emoji: '🏙️', color: 'bg-yellow-50 text-yellow-700' },
+  { city: 'London',   country: 'UK',        emoji: '🎡', color: 'bg-purple-50 text-purple-700' },
 ]
 
 export default function DashboardPage() {
@@ -86,30 +86,37 @@ export default function DashboardPage() {
               {recentTrips.map(trip => (
                 <div
                   key={trip.$id}
-                  className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition border border-gray-100"
+                  className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition overflow-hidden"
                 >
-                  <h4 className="font-semibold text-gray-800 mb-2 truncate">{trip.name}</h4>
-                  <div className="flex items-center gap-1.5 text-xs text-gray-500 mb-1">
-                    <Calendar size={12} />
-                    {trip.startDate} → {trip.endDate}
-                  </div>
-                  <div className="flex items-center gap-1.5 text-xs text-gray-500 mb-3">
-                    <MapPin size={12} />
-                    {trip.description || 'No description'}
-                  </div>
-                  <div className="flex gap-2">
-                    <Link
-                      to={`/trips/${trip.$id}/view`}
-                      className="flex-1 text-center bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1.5 rounded hover:bg-gray-200 transition"
-                    >
-                      View
-                    </Link>
-                    <Link
-                      to={`/trips/${trip.$id}/build`}
-                      className="flex-1 text-center bg-indigo-600 text-white text-xs font-medium px-3 py-1.5 rounded hover:bg-indigo-700 transition"
-                    >
-                      Build
-                    </Link>
+                  {/* Color bar */}
+                  <div className="h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500" />
+
+                  <div className="p-5">
+                    <h4 className="font-semibold text-gray-800 mb-2 truncate">{trip.name}</h4>
+                    <div className="flex items-center gap-1.5 text-xs text-gray-500 mb-1">
+                      <Calendar size={12} />
+                      {trip.startDate} → {trip.endDate}
+                    </div>
+                    <div className="flex items-center gap-1.5 text-xs text-gray-500 mb-4">
+                      <MapPin size={12} />
+                      {trip.description || 'No description'}
+                    </div>
+
+                    {/* Action buttons */}
+                    <div className="flex gap-2">
+                      <Link
+                        to={`/trips/${trip.$id}/view`}
+                        className="flex-1 text-center text-xs font-medium text-indigo-600 bg-indigo-50 hover:bg-indigo-100 py-1.5 rounded-lg transition"
+                      >
+                        View
+                      </Link>
+                      <Link
+                        to={`/trips/${trip.$id}/build`}
+                        className="flex-1 text-center text-xs font-medium text-gray-600 bg-gray-50 hover:bg-gray-100 py-1.5 rounded-lg transition"
+                      >
+                        Edit
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}

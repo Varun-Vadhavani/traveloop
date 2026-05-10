@@ -1,6 +1,6 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import { Plane, LayoutDashboard, MapPin, LogOut, PiggyBank } from 'lucide-react'
+import { Plane, LayoutDashboard, MapPin, LogOut, UserCircle } from 'lucide-react'
 
 export default function Navbar() {
   const { user, logout } = useAuth()
@@ -32,11 +32,15 @@ export default function Navbar() {
       <div className="flex items-center gap-6 text-sm">
         <Link to="/" className={`flex items-center gap-1.5 transition ${isActive('/')}`}>
           <LayoutDashboard size={16} />
-          Dashboard
+          <span className="hidden sm:block">Dashboard</span>
         </Link>
         <Link to="/trips" className={`flex items-center gap-1.5 transition ${isActive('/trips')}`}>
           <MapPin size={16} />
-          My Trips
+          <span className="hidden sm:block">My Trips</span>
+        </Link>
+        <Link to="/profile" className={`flex items-center gap-1.5 transition ${isActive('/profile')}`}>
+          <UserCircle size={16} />
+          <span className="hidden sm:block">Profile</span>
         </Link>
       </div>
 
@@ -50,7 +54,7 @@ export default function Navbar() {
           className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-red-500 transition"
         >
           <LogOut size={16} />
-          Logout
+          <span className="hidden sm:block">Logout</span>
         </button>
       </div>
     </nav>
