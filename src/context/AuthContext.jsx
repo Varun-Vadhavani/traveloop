@@ -1,10 +1,10 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { account, ID } from '../appwrite/config.js'
+import { account } from '../appwrite/config'
 
 const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null)
+  const [user, setUser]       = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -15,18 +15,38 @@ export function AuthProvider({ children }) {
   }, [])
 
   async function login(email, password) {
+    // Delete any existing session first to avoid conflicts
+    try {
+      await account.deleteSession('current')
+    } catch {
+      // No active session — that's fine, continue
+    }
+
     await account.createEmailPasswordSession(email, password)
     const u = await account.get()
     setUser(u)
   }
 
   async function signup(name, email, password) {
-    await account.create(ID.unique(), email, password, name)
-    await login(email, password)
+    // Delete any existing session first
+    try {
+      await account.deleteSession('current')
+    } catch {
+      // No active session — that's fine, continue
+    }
+
+    await account.create('unique()', email, password, name)
+    await account.createEmailPasswordSession(email, password)
+    const u = await account.get()
+    setUser(u)
   }
 
   async function logout() {
-    await account.deleteSession('current')
+    try {
+      await account.deleteSession('current')
+    } catch {
+      // Session already gone
+    }
     setUser(null)
   }
 
