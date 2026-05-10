@@ -9,6 +9,7 @@ import CreateTripPage        from './pages/CreateTripPage'
 import ItineraryBuilderPage  from './pages/ItineraryBuilderPage'
 import ItineraryViewPage     from './pages/ItineraryViewPage'
 import BudgetPage            from './pages/BudgetPage'
+import CheckListPage         from './pages/CheckListPage'
 
 function ProtectedRoute({ children }) {
   const { user } = useAuth()
@@ -29,6 +30,7 @@ export default function App() {
       <Route path="/trips/:tripId/build"  element={<ProtectedRoute><ItineraryBuilderPage /></ProtectedRoute>} />
       <Route path="/trips/:tripId/view"   element={<ProtectedRoute><ItineraryViewPage /></ProtectedRoute>} />
       <Route path="/trips/:tripId/budget" element={<ProtectedRoute><BudgetPage /></ProtectedRoute>} />
+      <Route path="/trips/:tripId/checklist" element={<ProtectedRoute><CheckListPage /></ProtectedRoute>} />
     </Routes>
   )
 }
